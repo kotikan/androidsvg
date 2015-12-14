@@ -223,29 +223,29 @@ public class CSSParser
 
    public static class Selector
    {
-      public List<SimpleSelector>  selector = null;
+      public List<SimpleSelector> selectors = null;
       public int                   specificity = 0;
       
       public void  add(SimpleSelector part)
       {
-         if (this.selector == null)
-            this.selector = new ArrayList<SimpleSelector>();
-         this.selector.add(part);
+         if (this.selectors == null)
+            this.selectors = new ArrayList<SimpleSelector>();
+         this.selectors.add(part);
       }
 
       public int size()
       {
-         return (this.selector == null) ? 0 : this.selector.size();
+         return (this.selectors == null) ? 0 : this.selectors.size();
       }
 
       public SimpleSelector get(int i)
       {
-         return this.selector.get(i);
+         return this.selectors.get(i);
       }
 
       public boolean isEmpty()
       {
-         return (this.selector == null) ? true : this.selector.isEmpty();
+         return (this.selectors == null) || this.selectors.isEmpty();
       }
 
       // Methods for accumulating a specificity value as SimpleSelector entries are added.
@@ -268,7 +268,7 @@ public class CSSParser
       public String toString()
       {
          StringBuilder  sb = new StringBuilder();
-         for (SimpleSelector sel: selector)
+         for (SimpleSelector sel: selectors)
             sb.append(sel).append(' ');
          return sb.append('(').append(specificity).append(')').toString();
       }

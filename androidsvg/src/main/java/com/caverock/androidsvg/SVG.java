@@ -1176,18 +1176,18 @@ public class SVG
 
    protected static class Colour extends SvgPaint
    {
-      public int colour;
+      public int col;
       
       public static final Colour BLACK = new Colour(0);  // Black singleton - a common default value.
       
       public Colour(int val)
       {
-         this.colour = val;
+         this.col = val;
       }
       
       public String toString()
       {
-         return String.format("#%06x", colour);
+         return String.format("#%06x", col);
       }
    }
 
@@ -1565,7 +1565,7 @@ public class SVG
 
 
    // One of the element types that can cause graphics to be drawn onto the target canvas.
-   // Specifically: ‘circle’, ‘ellipse’, ‘image’, ‘line’, ‘path’, ‘polygon’, ‘polyline’, ‘rect’, ‘text’ and ‘use’.
+   // Specifically: ï¿½circleï¿½, ï¿½ellipseï¿½, ï¿½imageï¿½, ï¿½lineï¿½, ï¿½pathï¿½, ï¿½polygonï¿½, ï¿½polylineï¿½, ï¿½rectï¿½, ï¿½textï¿½ and ï¿½useï¿½.
    protected static abstract class GraphicsElement extends SvgConditionalElement implements HasTransform
    {
       public Matrix  transform;
@@ -1876,7 +1876,7 @@ public class SVG
 
    protected static class SolidColor extends SvgElementBase implements SvgContainer
    {
-      public Length  solidColor;
+      public Length solidColour;
       public Length  solidOpacity;
 
       // Dummy container methods. Stop is officially a container, but we 

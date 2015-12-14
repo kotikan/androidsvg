@@ -2365,9 +2365,9 @@ public class SVGAndroidRenderer
       float  paintOpacity = (isFill) ? state.style.fillOpacity : state.style.strokeOpacity;
       int    col;
       if (paint instanceof SVG.Colour) {
-         col = ((SVG.Colour) paint).colour;
+         col = ((SVG.Colour) paint).col;
       } else if (paint instanceof CurrentColor) {
-         col = state.style.color.colour;
+         col = state.style.color.col;
       } else {
          return;
       }
@@ -2450,9 +2450,9 @@ public class SVGAndroidRenderer
    {
       int    col;
       if (state.style.viewportFill instanceof SVG.Colour) {
-         col = ((SVG.Colour) state.style.viewportFill).colour;
+         col = ((SVG.Colour) state.style.viewportFill).col;
       } else if (state.style.viewportFill instanceof CurrentColor) {
-         col = state.style.color.colour;
+         col = state.style.color.col;
       } else {
          return;
       }
@@ -3256,7 +3256,7 @@ public class SVGAndroidRenderer
          Colour col = (SVG.Colour) state.style.stopColor;
          if (col == null)
             col = Colour.BLACK;
-         colours[i] = clamp255(state.style.stopOpacity) << 24 | col.colour;
+         colours[i] = clamp255(state.style.stopOpacity) << 24 | col.col;
          i++;
 
          statePop();
@@ -3365,7 +3365,7 @@ public class SVGAndroidRenderer
          Colour col = (SVG.Colour) state.style.stopColor;
          if (col == null)
             col = Colour.BLACK;
-         colours[i] = clamp255(state.style.stopOpacity) << 24 | col.colour;
+         colours[i] = clamp255(state.style.stopOpacity) << 24 | col.col;
          i++;
 
          statePop();
