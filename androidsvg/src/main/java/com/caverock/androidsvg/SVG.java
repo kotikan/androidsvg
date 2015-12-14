@@ -107,7 +107,7 @@ public class SVG
    Map<String, SvgElementBase> idToElementMap = new HashMap<String, SvgElementBase>();
 
 
-   protected enum Unit
+   public enum Unit
    {
       px,
       em,
@@ -876,7 +876,7 @@ public class SVG
    // Object sub-types used in the SVG object tree
 
 
-   protected static class  Box implements Cloneable
+   public static class  Box implements Cloneable
    {
       public float  minX, minY, width, height;
 
@@ -959,7 +959,7 @@ public class SVG
                                                           | SPECIFIED_SOLID_OPACITY | SPECIFIED_VIEWPORT_FILL
                                                           | SPECIFIED_VIEWPORT_FILL_OPACITY | SPECIFIED_VECTOR_EFFECT;
 
-   protected static class  Style implements Cloneable
+   public static class  Style implements Cloneable
    {
       // Which properties have been explicitly specified by this element
       public long       specifiedFlags = 0;
@@ -1170,11 +1170,11 @@ public class SVG
 
 
    // What fill or stroke is
-   protected abstract static class SvgPaint implements Cloneable
+   public abstract static class SvgPaint implements Cloneable
    {
    }
 
-   protected static class Colour extends SvgPaint
+   public static class Colour extends SvgPaint
    {
       public int col;
       
@@ -1228,7 +1228,7 @@ public class SVG
    /**
     * @hide
     */
-   protected static class Length implements Cloneable
+   public static class Length implements Cloneable
    {
       float  value = 0;
       Unit   unit = Unit.px;
@@ -1366,8 +1366,7 @@ public class SVG
       }
    }
 
-
-   protected static class CSSClipRect
+   public static class CSSClipRect
    {
       public Length  top;
       public Length  right;
@@ -1390,7 +1389,7 @@ public class SVG
 
 
    // Any object that can be part of the tree
-   protected static class SvgObject
+   public static class SvgObject
    {
       public SVG           document;
       public SvgContainer  parent;
@@ -1404,7 +1403,7 @@ public class SVG
 
 
    // Any object in the tree that corresponds to an SVG element
-   protected static class SvgElementBase extends SvgObject
+   public static class SvgElementBase extends SvgObject
    {
       public String        id = null;
       public Boolean       spacePreserve = null;
@@ -1415,14 +1414,14 @@ public class SVG
 
 
    // Any object in the tree that corresponds to an SVG element
-   protected static class SvgElement extends SvgElementBase
+   public static class SvgElement extends SvgElementBase
    {
       public Box     boundingBox = null;
    }
 
 
    // Any element that can appear inside a <switch> element.
-   protected interface SvgConditional
+   public interface SvgConditional
    {
       public void         setRequiredFeatures(Set<String> features);
       public Set<String>  getRequiredFeatures();
@@ -1469,14 +1468,14 @@ public class SVG
    }
 
 
-   protected interface SvgContainer
+   public interface SvgContainer
    {
       public List<SvgObject>  getChildren();
       public void             addChild(SvgObject elem) throws SAXException;
    }
 
 
-   protected static class SvgConditionalContainer extends SvgElement implements SvgContainer, SvgConditional
+   public static class SvgConditionalContainer extends SvgElement implements SvgContainer, SvgConditional
    {
       public List<SvgObject> children = new ArrayList<SvgObject>();
 
@@ -1653,7 +1652,7 @@ public class SVG
    }
    
 
-   protected static class  TextContainer extends SvgConditionalContainer
+   public static class  TextContainer extends SvgConditionalContainer
    {
       @Override
       public void  addChild(SvgObject elem) throws SAXException
@@ -1914,7 +1913,7 @@ public class SVG
    // Path definition
 
 
-   protected interface PathInterface
+   public interface PathInterface
    {
       public void  moveTo(float x, float y);
       public void  lineTo(float x, float y);
@@ -1925,7 +1924,7 @@ public class SVG
    }
 
 
-   protected static class PathDefinition implements PathInterface
+   public static class PathDefinition implements PathInterface
    {
       private byte[]   commands = null;
       private int      commandsLength = 0;

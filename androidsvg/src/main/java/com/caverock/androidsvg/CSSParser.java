@@ -332,7 +332,7 @@ public class CSSParser
    //==============================================================================
    
    
-   private static class CSSTextScanner extends TextScanner
+   protected static class CSSTextScanner extends TextScanner
    {
       public CSSTextScanner(String input)
       {

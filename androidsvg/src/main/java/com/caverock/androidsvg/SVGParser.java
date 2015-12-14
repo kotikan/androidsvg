@@ -2196,7 +2196,7 @@ public class SVGParser extends DefaultHandler2
    //=========================================================================
 
 
-   protected static class TextScanner
+   public static class TextScanner
    {
       protected String   input;
       protected int      position = 0;
